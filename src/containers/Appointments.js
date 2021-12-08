@@ -9,7 +9,8 @@ const Appointments = () => {
     );
   }
 
-  return 'YOU GATS LOGIN';
+  window.location.href = 'http://localhost:3001/login';
+  return null;
 };
 
 export default Appointments;
