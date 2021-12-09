@@ -1,7 +1,7 @@
-import { /* useDispatch, */ useSelector } from 'react-redux';
-
 const userAuth = () => {
-  const user = useSelector((state) => state.user);
+//   console.log(localStorage.getItem('user'));
+//   const user = useSelector((state) => state.user);
+  const user = localStorage.getItem('user');
   return user != null;
 };
 
