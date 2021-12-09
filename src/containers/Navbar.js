@@ -5,7 +5,6 @@ const Navbar = () => {
   let appointmentlink = '/login';
 
   if (userAuth()) {
-    console.log(userAuth());
     appointmentlink = '/';
   }
 
