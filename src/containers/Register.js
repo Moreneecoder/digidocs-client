@@ -15,10 +15,20 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    let fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/users';
+
     const userData = {
-      name, phone, email, address, is_doctor: isDoctor,
+      name, phone, email,
     };
-    registerUser('http://digidocs-api.herokuapp.com/api/v1/users', userData);
+
+    console.log(isDoctor);
+    if (isDoctor) {
+      userData.office_address = address;
+      userData.is_doctor = isDoctor;
+      fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
+    }
+
+    registerUser(fetchUrl, userData);
     console.log(userData);
   };
 

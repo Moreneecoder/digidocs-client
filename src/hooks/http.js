@@ -41,7 +41,7 @@ const registerUser = (url, data) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.response);
+      console.log(data);
       // dispatch(refreshTable(data.response));
     })
     .catch((error) => console.log(error));
