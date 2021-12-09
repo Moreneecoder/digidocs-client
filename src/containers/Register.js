@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { registerUser } from '../hooks/http';
 
 const Register = () => {
   const [isDoctor, setIsDoctorParams] = useState(false);
@@ -17,6 +18,7 @@ const Register = () => {
     const userData = {
       name, phone, email, address, is_doctor: isDoctor,
     };
+    registerUser('http://digidocs-api.herokuapp.com/api/v1/users', userData);
     console.log(userData);
   };
 
@@ -41,7 +43,6 @@ const Register = () => {
 
   return (
     <div className="Register container">
-      {/* onSubmit={(e) => handleSubmit(e)} */}
       <form onSubmit={(e) => handleSubmit(e)}>
         <input className="form-control mt-1" required placeholder="Name" onChange={(e) => handleInputChange(e, 'nameInput')} />
         <input className="form-control mt-1" required placeholder="Phone" onChange={(e) => handleInputChange(e, 'phoneInput')} />
