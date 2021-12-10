@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-// import userAuth from '../helpers/userAuth';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import userAuth from '../helpers/userAuth';
 
 const Navbar = () => {
   const loggedIn = useSelector((state) => state.user);
   let appointmentlink = '/login';
 
-  if (loggedIn || localStorage.getItem('user')) {
+  if (loggedIn || userAuth()) {
     appointmentlink = '/';
   }
 
@@ -31,7 +31,7 @@ const Navbar = () => {
           </ul>
 
           <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-            {loggedIn || localStorage.getItem('user') ? (
+            {loggedIn || userAuth() ? (
               <li className="nav-item">
                 <Link className="nav-link text-white" to="/logout">Logout</Link>
               </li>
