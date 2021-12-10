@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../hooks/http';
 import { authSuccess } from '../actions';
 
@@ -59,6 +59,8 @@ const Login = () => {
 
         <button type="submit" className="btn btn-success mt-1">Login</button>
       </form>
+
+      <Link to="/register">Register</Link>
     </div>
   );
 };
