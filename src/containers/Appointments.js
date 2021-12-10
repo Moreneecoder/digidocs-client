@@ -1,9 +1,12 @@
 // import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 
 const Appointments = () => {
 //   const navigate = useNavigate();
-  if (userAuth()) {
+  const loggedIn = useSelector((state) => state.user);
+
+  if (loggedIn || userAuth()) {
     return (
       <div className="Appointments">
         <h1>Appointino</h1>

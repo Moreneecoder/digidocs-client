@@ -5,6 +5,9 @@ const userReducer = (state = null, action) => {
     case 'AUTH_SUCCESS':
       output = action.loggedIn;
       break;
+    case 'LOGOUT':
+      output = action.loggedOut;
+      break;
     default:
       output = state;
   }

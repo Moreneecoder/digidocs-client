@@ -1,6 +1,7 @@
 const REFRESH_TABLE = 'REFRESH_TABLE';
 const FILTER_TABLE = 'FILTER_TABLE';
 const AUTH_SUCCESS = 'AUTH_SUCCESS';
+const LOGOUT = 'LOGOUT';
 
 const refreshTable = (table) => ({
   type: REFRESH_TABLE,
@@ -17,4 +18,11 @@ const authSuccess = (loggedIn) => ({
   loggedIn,
 });
 
-export { refreshTable, filterTable, authSuccess };
+const loggedOut = (loggedOut) => ({
+  type: LOGOUT,
+  loggedOut,
+});
+
+export {
+  refreshTable, filterTable, authSuccess, loggedOut,
+};

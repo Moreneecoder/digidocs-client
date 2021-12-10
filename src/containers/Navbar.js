@@ -33,7 +33,7 @@ const Navbar = () => {
           <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
             {loggedIn || localStorage.getItem('user') ? (
               <li className="nav-item">
-                <Link className="nav-link text-white" to="/fixtures">Logout</Link>
+                <Link className="nav-link text-white" to="/logout">Logout</Link>
               </li>
             ) : (
               <>
