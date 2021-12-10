@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../hooks/http';
-import { signedUp } from '../actions';
+import { auth } from '../hooks/http';
+import { authSuccess } from '../actions';
 
 const Register = () => {
   const [isDoctor, setIsDoctorParams] = useState(false);
@@ -34,11 +34,11 @@ const Register = () => {
       fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
     }
 
-    const response = await registerUser(fetchUrl, userData);
+    const response = await auth(fetchUrl, userData);
     console.log(response);
     if (response.status === 201) {
       localStorage.setItem('user', response.user);
-      dispatch(signedUp(true));
+      dispatch(authSuccess(true));
       navigate('/');
     }
   };

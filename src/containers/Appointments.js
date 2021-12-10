@@ -1,6 +1,8 @@
+// import { useNavigate } from 'react-router-dom';
 import userAuth from '../helpers/userAuth';
 
 const Appointments = () => {
+//   const navigate = useNavigate();
   if (userAuth()) {
     return (
       <div className="Appointments">
@@ -9,7 +11,8 @@ const Appointments = () => {
     );
   }
 
-  window.location.href = 'http://localhost:3001/login';
+  //   navigate('/register');
+  window.location.href = '/login';
   return null;
 };
 

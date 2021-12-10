@@ -38,10 +38,10 @@ const Navbar = () => {
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link text-white" to="/fixtures">Login</Link>
+                  <Link className="nav-link text-white" to="/login">Login</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-white" to="/goalchart">Register</Link>
+                  <Link className="nav-link text-white" to="/register">Register</Link>
                 </li>
               </>
             )}

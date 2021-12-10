@@ -1,6 +1,6 @@
 const REFRESH_TABLE = 'REFRESH_TABLE';
 const FILTER_TABLE = 'FILTER_TABLE';
-const SIGNED_UP = 'SIGNED_UP';
+const AUTH_SUCCESS = 'AUTH_SUCCESS';
 
 const refreshTable = (table) => ({
   type: REFRESH_TABLE,
@@ -12,9 +12,9 @@ const filterTable = (filter) => ({
   filter,
 });
 
-const signedUp = (loggedIn) => ({
-  type: SIGNED_UP,
+const authSuccess = (loggedIn) => ({
+  type: AUTH_SUCCESS,
   loggedIn,
 });
 
-export { refreshTable, filterTable, signedUp };
+export { refreshTable, filterTable, authSuccess };
