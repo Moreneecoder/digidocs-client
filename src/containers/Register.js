@@ -22,6 +22,7 @@ const Register = () => {
     e.preventDefault();
 
     let fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/users';
+    let userRole = 'patient';
 
     const userData = {
       name, phone, email,
@@ -32,12 +33,13 @@ const Register = () => {
       userData.office_address = address;
       userData.is_doctor = isDoctor;
       fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
+      userRole = 'doctor';
     }
 
     const response = await auth(fetchUrl, userData);
     console.log(response);
     if (response.status === 201) {
-      localStorage.setItem('user', response.user);
+      localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user }));
       dispatch(authSuccess(true));
       navigate('/');
     }

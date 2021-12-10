@@ -15,24 +15,18 @@ const Login = () => {
     e.preventDefault();
 
     const fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/login';
-    // const fetchUrl = 'http://localhost:3000/api/v1/login';
+    let userRole = 'patient';
 
     const userData = {
       name, email,
     };
 
-    // console.log(isDoctor);
-    // if (isDoctor) {
-    //   userData.office_address = address;
-    //   userData.is_doctor = isDoctor;
-    //   fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
-    // }
-
     const response = await auth(fetchUrl, userData);
-    // console.log(response);
+
     if (response.status === 200) {
       console.log(response);
-      localStorage.setItem('user', response.user.id);
+      if (response.user.is_doctor) userRole = 'doctor';
+      localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user.id }));
       dispatch(authSuccess(true));
       navigate('/');
     }
