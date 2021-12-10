@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../hooks/http';
+import { signedUp } from '../actions';
 
 const Register = () => {
   const [isDoctor, setIsDoctorParams] = useState(false);
@@ -8,11 +11,14 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleCheckChange = (e) => {
     setIsDoctorParams(e.target.checked);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/users';
@@ -28,8 +34,13 @@ const Register = () => {
       fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
     }
 
-    registerUser(fetchUrl, userData);
-    console.log(userData);
+    const response = await registerUser(fetchUrl, userData);
+    console.log(response);
+    if (response.status === 201) {
+      localStorage.setItem('user', response.user);
+      dispatch(signedUp(true));
+      navigate('/');
+    }
   };
 
   const handleInputChange = (data, from) => {

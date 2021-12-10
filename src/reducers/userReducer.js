@@ -2,8 +2,8 @@ const userReducer = (state = null, action) => {
   let output;
 
   switch (action.type) {
-    case 'SET_USER':
-      output = action.user;
+    case 'SIGNED_UP':
+      output = action.loggedIn;
       break;
     default:
       output = state;
