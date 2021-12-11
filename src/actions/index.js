@@ -2,6 +2,7 @@ const REFRESH_TABLE = 'REFRESH_TABLE';
 const FILTER_TABLE = 'FILTER_TABLE';
 const AUTH_SUCCESS = 'AUTH_SUCCESS';
 const LOGOUT = 'LOGOUT';
+const LOAD_APPOINTMENTS = 'LOAD_APPOINTMENTS';
 
 const refreshTable = (table) => ({
   type: REFRESH_TABLE,
@@ -18,6 +19,11 @@ const authSuccess = (loggedIn) => ({
   loggedIn,
 });
 
+const loadAppointments = (appointments) => ({
+  type: LOAD_APPOINTMENTS,
+  appointments,
+});
+
 const loggedOut = (loggedOut) => ({
   type: LOGOUT,
   loggedOut,
@@ -25,4 +31,5 @@ const loggedOut = (loggedOut) => ({
 
 export {
   refreshTable, filterTable, authSuccess, loggedOut,
+  loadAppointments,
 };

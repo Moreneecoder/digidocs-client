@@ -2,8 +2,8 @@ const appointmentsReducer = (state = [], action) => {
   let output;
 
   switch (action.type) {
-    case 'REFRESH_TABLE':
-      output = action.latestTable;
+    case 'LOAD_APPOINTMENTS':
+      output = action.appointments;
       break;
     default:
       output = state;

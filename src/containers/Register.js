@@ -22,22 +22,21 @@ const Register = () => {
     e.preventDefault();
 
     let fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/users';
-    let userRole = 'patient';
+    let userRole = 'users';
 
     const userData = {
       name, phone, email,
     };
 
-    console.log(isDoctor);
     if (isDoctor) {
       userData.office_address = address;
       userData.is_doctor = isDoctor;
       fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
-      userRole = 'doctor';
+      userRole = 'doctors';
     }
 
     const response = await auth(fetchUrl, userData);
-    console.log(response);
+
     if (response.status === 201) {
       localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user }));
       dispatch(authSuccess(true));

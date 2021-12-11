@@ -1,29 +1,26 @@
-// import axios from 'axios';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 // import env from 'react-dotenv';
-// import { refreshTable } from '../actions';
+import { loadAppointments } from '../actions';
+
+const corsUrl = 'https://cors-anywhere.herokuapp.com';
 
 const useHttp = (url, dependencies) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(url, {
+    fetch(`${corsUrl}/${url}`, {
       method: 'GET',
-      headers: {
-        'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-      },
       mode: 'cors',
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.response);
-        // dispatch(refreshTable(data.response));
+        dispatch(loadAppointments(data));
       });
   }, dependencies);
 };
 
-const auth = (url, data) => fetch(`https://cors-anywhere.herokuapp.com/${url}`, {
+const auth = (url, data) => fetch(`${corsUrl}/${url}`, {
   method: 'POST',
   mode: 'cors',
   headers: {

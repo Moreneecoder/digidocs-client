@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     const fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/login';
-    let userRole = 'patient';
+    let userRole = 'users';
 
     const userData = {
       name, email,
@@ -24,8 +24,7 @@ const Login = () => {
     const response = await auth(fetchUrl, userData);
 
     if (response.status === 200) {
-      console.log(response);
-      if (response.user.is_doctor) userRole = 'doctor';
+      if (response.user.is_doctor) userRole = 'doctors';
       localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user.id }));
       dispatch(authSuccess(true));
       navigate('/');
