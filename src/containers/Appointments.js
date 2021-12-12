@@ -1,7 +1,9 @@
 // import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
+import { loadAppointments } from '../actions';
 
 const Appointments = () => {
 //   const navigate = useNavigate();
@@ -10,9 +12,12 @@ const Appointments = () => {
   const userInfo = JSON.parse(localStorage.getItem('user'));
 
   if (loggedIn || userAuth()) {
-    useHttp(`http://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.id}/appointments`, []);
+    useHttp(`http://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.id}/appointments`,
+      loadAppointments,
+      []);
 
     if (appointments.length) {
+      console.log(appointments);
       let idx = 0;
       return (
         <div className="Appointments">
@@ -21,7 +26,15 @@ const Appointments = () => {
             idx += 1;
             return (
               <div key={idx}>
-                <span>{data.appointment.title}</span>
+                <span>
+                  <Link
+                //   index={rank}
+                    to="/appointment"
+                    state={{ id: data.appointment.id }}
+                  >
+                    {data.appointment.title}
+                  </Link>
+                </span>
                 {' '}
 &nbsp;
                 <span>{data.doctor.name}</span>

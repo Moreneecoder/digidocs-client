@@ -1,11 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 // import env from 'react-dotenv';
-import { loadAppointments } from '../actions';
 
 const corsUrl = 'https://cors-anywhere.herokuapp.com';
 
-const useHttp = (url, dependencies) => {
+const useHttp = (url, action, dependencies) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,7 +14,8 @@ const useHttp = (url, dependencies) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        dispatch(loadAppointments(data));
+        console.log(data);
+        dispatch(action(data));
       });
   }, dependencies);
 };
