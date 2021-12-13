@@ -1,5 +1,4 @@
 // import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
@@ -10,10 +9,10 @@ const Doctors = () => {
 //   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
-//   const userInfo = JSON.parse(localStorage.getItem('user'));
+  //   const userInfo = JSON.parse(localStorage.getItem('user'));
 
   if (loggedIn || userAuth()) {
-    useHttp(`http://digidocs-api.herokuapp.com/api/v1/doctors`,
+    useHttp('http://digidocs-api.herokuapp.com/api/v1/doctors',
       loadDoctors,
       []);
 
