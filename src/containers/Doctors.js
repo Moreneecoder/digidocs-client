@@ -1,9 +1,10 @@
 // import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadDoctors } from '../actions';
-// import AppointmentModal from './AppoinmentModal';
+import AppointmentModal from './AppoinmentModal';
 
 const Doctors = () => {
 //   const navigate = useNavigate();
@@ -15,6 +16,8 @@ const Doctors = () => {
     useHttp('http://digidocs-api.herokuapp.com/api/v1/doctors',
       loadDoctors,
       []);
+
+    console.log(doctors);
 
     if (doctors.length) {
       console.log(doctors);
@@ -35,6 +38,13 @@ const Doctors = () => {
                 {' '}
 &nbsp;
                 <span>{doctor.email}</span>
+                {' '}
+&nbsp;
+                <span><AppointmentModal /></span>
+                <span>
+                  <Link className="btn btn-success" to={`/doctor/${doctor.id}`}>View Doctor</Link>
+                </span>
+
               </div>
             );
           })}
