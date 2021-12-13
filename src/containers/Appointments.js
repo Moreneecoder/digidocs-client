@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadAppointments } from '../actions';
+// import AppointmentModal from './AppoinmentModal';
 
 const Appointments = () => {
 //   const navigate = useNavigate();
@@ -22,6 +23,9 @@ const Appointments = () => {
       return (
         <div className="Appointments">
           <h1>Appointino</h1>
+          <Link className="btn btn-primary" to="/doctors">Book Apointment</Link>
+          {/* <AppointmentModal /> */}
+
           {appointments.map((data) => {
             idx += 1;
             return (
@@ -44,6 +48,7 @@ const Appointments = () => {
               </div>
             );
           })}
+
         </div>
       );
     }

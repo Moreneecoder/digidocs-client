@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './containers/Navbar';
 import Appointments from './containers/Appointments';
+import Doctors from './containers/Doctors';
 import Appointment from './containers/Appointment';
 import Register from './containers/Register';
 import Login from './containers/Login';
@@ -17,6 +18,7 @@ const App = () => (
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/appointment" element={<Appointment />} />
+        <Route path="/doctors" element={<Doctors />} />
       </Routes>
     </div>
   </BrowserRouter>
