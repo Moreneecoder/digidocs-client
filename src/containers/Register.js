@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '../hooks/http';
+import { postReq } from '../hooks/http';
 import { authSuccess } from '../actions';
 
 const Register = () => {
@@ -35,7 +35,7 @@ const Register = () => {
       userRole = 'doctors';
     }
 
-    const response = await auth(fetchUrl, userData);
+    const response = await postReq(fetchUrl, userData);
 
     if (response.status === 201) {
       localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user }));

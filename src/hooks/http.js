@@ -2,13 +2,13 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 // import env from 'react-dotenv';
 
-const corsUrl = 'https://cors-anywhere.herokuapp.com';
+// const corsUrl = 'https://cors-anywhere.herokuapp.com';
 
 const useHttp = (url, action, dependencies) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`${corsUrl}/${url}`, {
+    fetch(url, {
       method: 'GET',
       mode: 'cors',
     })
@@ -20,7 +20,7 @@ const useHttp = (url, action, dependencies) => {
   }, dependencies);
 };
 
-const auth = (url, data) => fetch(`${corsUrl}/${url}`, {
+const postReq = (url, data) => fetch(url, {
   method: 'POST',
   mode: 'cors',
   headers: {
@@ -33,4 +33,4 @@ const auth = (url, data) => fetch(`${corsUrl}/${url}`, {
 
 // const logIn = (url) => fetch(`https://cors-anywhere.herokuapp.com/${url}`)
 
-export { useHttp, auth };
+export { useHttp, postReq };
