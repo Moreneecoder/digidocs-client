@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import userAuth from '../helpers/userAuth';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const loggedIn = useSelector((state) => state.user);

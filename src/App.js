@@ -7,21 +7,35 @@ import Appointment from './containers/Appointment';
 import Register from './containers/Register';
 import Login from './containers/Login';
 import Logout from './containers/Logout';
+import SideNav from './components/SideNav';
+import './styles/App.css';
+import './js/scripts';
 
 const App = () => (
 
   <BrowserRouter>
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Appointments />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/appointment/:appointment_id" element={<Appointment />} />
-        <Route path="/doctors" element={<Doctors />} />
-        <Route path="/doctors/:doctor_id" element={<Doctor />} />
-      </Routes>
+      {/* <div className="d-flex" id="wrapper">
+        <SideNav />
+        <div id="page-content-wrapper"> */}
+      <div className="d-flex">
+        <SideNav />
+
+        <div className="RestOfApp">
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Appointments />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/appointments/:appointment_id" element={<Appointment />} />
+            <Route path="/doctors" element={<Doctors />} />
+            <Route path="/doctors/:doctor_id" element={<Doctor />} />
+          </Routes>
+        </div>
+      </div>
+      {/* </div>
+      </div> */}
     </div>
   </BrowserRouter>
 );
