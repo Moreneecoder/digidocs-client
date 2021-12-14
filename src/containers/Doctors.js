@@ -12,7 +12,13 @@ const Doctors = () => {
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
   //   const userInfo = JSON.parse(localStorage.getItem('user'));
-  const [doc, setDoc] = useState('');
+  const [doc, setDoc] = useState({
+    id: '',
+    name: '',
+    phone: '',
+    email: '',
+    office_address: '',
+  });
 
   if (loggedIn || userAuth()) {
     useHttp('http://digidocs-api.herokuapp.com/api/v1/doctors',

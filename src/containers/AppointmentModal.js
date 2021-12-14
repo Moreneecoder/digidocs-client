@@ -7,6 +7,8 @@ import Man from '../images/man_sketch.svg';
 const AppointmentModal = (props) => {
   const { doctor } = props;
 
+  console.log(doctor);
+
   const [time, setTime] = useState('');
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
@@ -104,7 +106,13 @@ const AppointmentModal = (props) => {
 };
 
 AppointmentModal.defaultProps = {
-  doctor: {},
+  doctor: {
+    id: '',
+    name: '',
+    phone: '',
+    email: '',
+    office_address: '',
+  },
 };
 
 AppointmentModal.propTypes = {
