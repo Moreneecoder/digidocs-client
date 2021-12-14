@@ -81,6 +81,7 @@ const AppointmentModal = (props) => {
                     {' '}
                     <Link to={`/doctor/${doctor.id}`}>
                       Learn More About
+                      {' '}
                       {doctor.name}
                     </Link>
                   </div>
@@ -107,7 +108,7 @@ const AppointmentModal = (props) => {
 
 AppointmentModal.defaultProps = {
   doctor: {
-    id: '',
+    id: 0,
     name: '',
     phone: '',
     email: '',
@@ -124,9 +125,5 @@ AppointmentModal.propTypes = {
     office_address: PropTypes.string.isRequired,
   }),
 };
-
-// AppointmentModal.propTypes = {
-//   doctor: PropTypes.func.isRequired,
-// };
 
 export default AppointmentModal;

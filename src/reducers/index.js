@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import appointmentsReducer from './appointments';
 import appointmentReducer from './appointment';
 import doctorsReducer from './doctorsReducer';
+import doctorReducer from './doctorReducer';
 import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   appointments: appointmentsReducer,
   appointment: appointmentReducer,
   doctors: doctorsReducer,
+  doctor: doctorReducer,
 });
 
 export default rootReducer;

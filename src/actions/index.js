@@ -5,6 +5,7 @@ const LOGOUT = 'LOGOUT';
 const LOAD_APPOINTMENTS = 'LOAD_APPOINTMENTS';
 const LOAD_APPOINTMENT = 'LOAD_APPOINTMENT';
 const LOAD_DOCTORS = 'LOAD_DOCTORS';
+const LOAD_DOCTOR = 'LOAD_DOCTOR';
 
 const refreshTable = (table) => ({
   type: REFRESH_TABLE,
@@ -31,6 +32,11 @@ const loadAppointment = (appointment) => ({
   appointment,
 });
 
+const loadDoctor = (doctor) => ({
+  type: LOAD_DOCTOR,
+  doctor,
+});
+
 const loadDoctors = (doctors) => ({
   type: LOAD_DOCTORS,
   doctors,
@@ -44,4 +50,5 @@ const loggedOut = (loggedOut) => ({
 export {
   refreshTable, filterTable, authSuccess, loggedOut,
   loadAppointments, loadAppointment, loadDoctors,
+  loadDoctor,
 };

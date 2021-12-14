@@ -11,9 +11,9 @@ const Doctors = () => {
 //   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
-  //   const userInfo = JSON.parse(localStorage.getItem('user'));
+
   const [doc, setDoc] = useState({
-    id: '',
+    id: 0,
     name: '',
     phone: '',
     email: '',
@@ -50,7 +50,7 @@ const Doctors = () => {
                 <button type="button" onClick={() => setDoc(doctor)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
                 <span><AppointmentModal doctor={doc} /></span>
                 <span>
-                  <Link className="btn btn-success" to={`/doctor/${doctor.id}`}>View Doctor</Link>
+                  <Link className="btn btn-success" to={`/doctors/${doctor.id}`} state={{ id: doctor.id }}>View Doctor</Link>
                 </span>
 
               </div>
