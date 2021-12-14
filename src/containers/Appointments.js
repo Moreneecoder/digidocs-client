@@ -33,7 +33,7 @@ const Appointments = () => {
                 <span>
                   <Link
                 //   index={rank}
-                    to="/appointment"
+                    to={`/appointment/${data.appointment.id}`}
                     state={{ id: data.appointment.id }}
                   >
                     {data.appointment.title}

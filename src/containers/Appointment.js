@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
@@ -37,7 +37,7 @@ const Appointment = () => {
           <p>
             Doctor:
             {' '}
-            {appointment.doctor.name}
+            <Link to={`/doctors/${appointment.doctor.id}`} state={{ id: appointment.doctor.id }}>{appointment.doctor.name}</Link>
             {' '}
             |
             {' '}
