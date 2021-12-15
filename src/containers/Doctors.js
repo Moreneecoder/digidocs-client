@@ -25,10 +25,7 @@ const Doctors = () => {
       loadDoctors,
       []);
 
-    // const getDoctor = (doc) => doc;
-
     if (doctors.length) {
-      console.log(doctors);
       let idx = 0;
       return (
         <div className="Doctors">

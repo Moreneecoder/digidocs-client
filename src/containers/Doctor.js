@@ -29,8 +29,6 @@ const Doctor = () => {
       [],
     );
 
-    console.log(useSelector((state) => state));
-
     if (doctor) {
       return (
         <div>

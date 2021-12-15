@@ -18,7 +18,6 @@
 //       []);
 
 //     if (appointments.length) {
-//       console.log(appointments);
 //       let idx = 0;
 //       return (
 //         <div className="Appointments">

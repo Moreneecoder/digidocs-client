@@ -7,8 +7,6 @@ import Man from '../images/man_sketch.svg';
 const AppointmentModal = (props) => {
   const { doctor } = props;
 
-  console.log(doctor);
-
   const [time, setTime] = useState('');
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
@@ -42,9 +40,7 @@ const AppointmentModal = (props) => {
 
     const fetchUrl = `http://digidocs-api.herokuapp.com/api/v1/users/${user.id}/appointments`;
 
-    const response = await postReq(fetchUrl, appDetails);
-
-    console.log(response);
+    await postReq(fetchUrl, appDetails);
   };
 
   return (
@@ -57,7 +53,6 @@ const AppointmentModal = (props) => {
                 <h5 className="modal-title" id="AppointmentModalLabel">
                   Book Appointment With
                   {' '}
-                  {console.log(doctor)}
                   <span>{doctor.name || ''}</span>
                 </h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />

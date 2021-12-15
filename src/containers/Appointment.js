@@ -20,8 +20,6 @@ const Appointment = () => {
       [],
     );
 
-    console.log(useSelector((state) => state));
-
     if (appointment) {
       return (
         <div>

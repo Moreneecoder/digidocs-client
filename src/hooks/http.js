@@ -14,7 +14,6 @@ const useHttp = (url, action, dependencies) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         dispatch(action(data));
       });
   }, dependencies);
@@ -30,7 +29,5 @@ const postReq = (url, data) => fetch(url, {
   body: JSON.stringify(data),
 })
   .then((response) => response.json());
-
-// const logIn = (url) => fetch(`https://cors-anywhere.herokuapp.com/${url}`)
 
 export { useHttp, postReq };
