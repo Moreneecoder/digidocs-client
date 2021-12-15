@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { postReq } from '../hooks/http';
-import Man from '../images/man_sketch.svg';
+// import Man from '../images/man_sketch.svg';
 
 const AppointmentModal = (props) => {
   const { doctor } = props;
@@ -58,27 +58,29 @@ const AppointmentModal = (props) => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
               </div>
               <div className="modal-body">
-                <p>
-                  Email:
-                  {' '}
-                  {doctor.email || ''}
-                </p>
-
                 <div className="row">
                   <div className="col-2">
-                    <img style={{ height: '100px', width: '100px' }} className="img-fluid" src={Man} alt="man-avatar" />
+                    <img className="img-thumbnail" src={doctor.image} alt="man-avatar" />
                   </div>
                   <div className="col-10">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum quo pariatur expedita possimus labore, hic
-                    laudantium dicta soluta rerum et illo explicabo vel repellat
-                    odio voluptatibus temporibus officia ab non?
-                    {' '}
-                    <Link to={`/doctor/${doctor.id}`}>
-                      Learn More About
+                    <p>
+                      Email:
                       {' '}
-                      {doctor.name}
-                    </Link>
+                      {doctor.email || ''}
+                    </p>
+
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Voluptatum quo pariatur expedita possimus labore, hic
+                      laudantium dicta soluta rerum et illo explicabo vel repellat
+                      odio voluptatibus temporibus officia ab non?
+                      {' '}
+                      <Link to={`/doctor/${doctor.id}`}>
+                        Learn More About
+                        {' '}
+                        {doctor.name}
+                      </Link>
+                    </p>
                   </div>
                 </div>
                 <hr />
@@ -108,6 +110,7 @@ AppointmentModal.defaultProps = {
     phone: '',
     email: '',
     office_address: '',
+    image: '',
   },
 };
 
@@ -118,6 +121,7 @@ AppointmentModal.propTypes = {
     phone: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     office_address: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
   }),
 };
 

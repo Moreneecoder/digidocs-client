@@ -1,3 +1,7 @@
 .Appointments {
   padding: 10px;
 }
+
+.dotted-border {
+  border-bottom: 3px dotted lightgrey;
+}

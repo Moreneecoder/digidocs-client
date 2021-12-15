@@ -6,6 +6,10 @@ import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadDoctors } from '../actions';
 import AppointmentModal from './AppointmentModal';
+import BlackDoctor from '../images/black-doctor.jpeg';
+import FemaleDoctor from '../images/doctor-female.jpeg';
+import FemaleDoctor1 from '../images/doctor-female-1.jpeg';
+import MaleDoctor from '../images/doctor-male.jpeg';
 
 const Doctors = () => {
 //   const navigate = useNavigate();
@@ -18,6 +22,7 @@ const Doctors = () => {
     phone: '',
     email: '',
     office_address: '',
+    image: '',
   });
 
   if (loggedIn || userAuth()) {
@@ -27,33 +32,46 @@ const Doctors = () => {
 
     if (doctors.length) {
       let idx = 0;
+      let imgIndex = 0;
+      const images = [BlackDoctor, FemaleDoctor, FemaleDoctor1, MaleDoctor];
       return (
         <div className="Doctors">
-          <h1>Doctors</h1>
+          <div className="col-12 col-md-6 mx-auto text-center mt-5 py-4">
+            <h2>FIND A MEDICAL EXPERT</h2>
+            <span className="text-muted">Book an appointment with a professional doctor with ease!</span>
+            <div className="dotted-border col-3 mx-auto pt-4" />
+          </div>
 
-          {doctors.map((doctor) => {
-            idx += 1;
-            return (
-              <div key={idx}>
-                <span>{doctor.name}</span>
-                {' '}
-&nbsp;
-                <span>{doctor.phone}</span>
-                {' '}
-&nbsp;
-                <span>{doctor.email}</span>
-                {' '}
-&nbsp;
-                <button type="button" onClick={() => setDoc(doctor)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
-                <span><AppointmentModal doctor={doc} /></span>
-                <span>
-                  <Link className="btn btn-success" to={`/doctors/${doctor.id}`} state={{ id: doctor.id }}>View Doctor</Link>
-                </span>
+          <div className="row container">
+            {doctors.map((doctor) => {
+              const docImg = images[imgIndex];
+              imgIndex += 1;
+              if (imgIndex === images.length) imgIndex = 0;
 
-              </div>
-            );
-          })}
+              idx += 1;
+              return (
 
+                <div key={idx} className="col-12 col-md-4 mb-5 px-4">
+                  <div className="text-center">
+                    <img src={docImg} className="img-fluid" alt="doctor" />
+                    <p className="fw-bolder mt-4 mb-0">{doctor.name}</p>
+                    <div className="dotted-border col-3 mx-auto pt-2" />
+                    <span className="text-muted">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Distinctio officiis, dolores at laborum alias quae illum. Aspernatur,
+                      doloribus.
+                    </span>
+
+                    <div className="mt-2">
+                      <button type="button" onClick={() => setDoc({ ...doctor, image: docImg })} className="btn main-bg-color text-white me-2" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
+                      <Link className="btn btn-primary" to={`/doctors/${doctor.id}`} state={{ id: doctor.id }}>View Doctor</Link>
+                    </div>
+                  </div>
+                  <AppointmentModal doctor={doc} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     }
