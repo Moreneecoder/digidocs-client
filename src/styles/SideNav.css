@@ -1,3 +1,7 @@
 .SideNav {
   flex-basis: 15%;
 }
+
+.side-nav-links {
+  width: 90%;
+}
