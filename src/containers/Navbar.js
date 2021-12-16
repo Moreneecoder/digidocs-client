@@ -7,9 +7,9 @@ const Navbar = () => {
   const loggedIn = useSelector((state) => state.user);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark text-primary">
+    <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white text-primary">
       <div className="container-fluid">
-        <Link className="navbar-brand text-white fw-bolder" to="/">DigiDocs</Link>
+        <div />
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>

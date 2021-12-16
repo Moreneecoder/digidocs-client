@@ -1,3 +1,7 @@
 .main-bg-color {
   background-color: green;
 }
+
+.dotted-border {
+  border-bottom: 3px dotted lightgrey;
+}

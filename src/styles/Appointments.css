@@ -2,6 +2,7 @@
   padding: 10px;
 }
 
-.dotted-border {
-  border-bottom: 3px dotted lightgrey;
+.appointment-captions span,
+.appointment-items span {
+  flex: 1;
 }

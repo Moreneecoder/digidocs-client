@@ -18,6 +18,7 @@ const Doctor = () => {
     phone: '',
     email: '',
     office_address: '',
+    image: '',
   });
 
   if (loggedIn || userAuth()) {

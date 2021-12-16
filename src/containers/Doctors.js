@@ -33,7 +33,7 @@ const Doctors = () => {
     if (doctors.length) {
       let idx = 0;
       let imgIndex = 0;
-      const images = [BlackDoctor, FemaleDoctor, FemaleDoctor1, MaleDoctor];
+      const images = [BlackDoctor, FemaleDoctor, MaleDoctor, FemaleDoctor1];
       return (
         <div className="Doctors">
           <div className="col-12 col-md-6 mx-auto text-center mt-5 py-4">

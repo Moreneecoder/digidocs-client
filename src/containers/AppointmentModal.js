@@ -75,7 +75,7 @@ const AppointmentModal = (props) => {
                       laudantium dicta soluta rerum et illo explicabo vel repellat
                       odio voluptatibus temporibus officia ab non?
                       {' '}
-                      <Link to={`/doctor/${doctor.id}`}>
+                      <Link to={`/doctors/${doctor.id}`} state={{ id: doctor.id }}>
                         Learn More About
                         {' '}
                         {doctor.name}
