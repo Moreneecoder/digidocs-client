@@ -22,7 +22,7 @@ const Appointments = () => {
       return (
         <div className="Appointments">
           <div className="col-12 col-md-6 mx-auto text-center mt-5 py-4">
-            <h2>Your Appointments</h2>
+            <h2>YOUR APPOINTMENTS</h2>
             <span className="text-muted">A list of your medical appointments</span>
             <div className="dotted-border col-3 mx-auto pt-4" />
           </div>
@@ -47,8 +47,8 @@ const Appointments = () => {
                     {idx}
                     .
                   </span>
-                  <span><Link className="text-decoration-none" to={`/appointments/${data.appointment.id}`} state={{ id: data.appointment.id }}>{data.appointment.title}</Link></span>
-                  <span><Link className="text-decoration-none" to={`/doctors/${data.doctor.id}`} state={{ id: data.doctor.id }}>{data.doctor.name}</Link></span>
+                  <span><Link className="app-link text-decoration-none main-text-color" to={`/appointments/${data.appointment.id}`} state={{ id: data.appointment.id }}>{data.appointment.title}</Link></span>
+                  <span><Link className="app-link text-decoration-none main-text-color" to={`/doctors/${data.doctor.id}`} state={{ id: data.doctor.id }}>{data.doctor.name}</Link></span>
                   <span>{data.appointment.time}</span>
                   <span>{data.appointment.time}</span>
                 </div>

@@ -1,5 +1,9 @@
 .main-bg-color {
-  background-color: green;
+  background-color: #9bbf2e;
+}
+
+.main-text-color {
+  color: #769422;
 }
 
 .dotted-border {

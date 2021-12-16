@@ -1,6 +1,6 @@
 .SideNav {
   flex-basis: 15%;
-  position: fixed;
+  position: sticky;
 }
 
 .side-nav-links {
