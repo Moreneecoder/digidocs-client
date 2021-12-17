@@ -10,7 +10,7 @@ import BlackDoctor from '../images/black-doctor.jpeg';
 import FemaleDoctor from '../images/doctor-female.jpeg';
 import FemaleDoctor1 from '../images/doctor-female-1.jpeg';
 import MaleDoctor from '../images/doctor-male.jpeg';
-import '../styles/Doctor.css';
+import '../styles/Doctors.css';
 
 const Doctors = () => {
 //   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Doctors = () => {
 
                     <div className="mt-2">
                       <button type="button" onClick={() => setDoc({ ...doctor, image: docImg })} className="btn main-bg-color text-white me-2" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
-                      <Link className="view-doc-btn btn" to={`/doctors/${doctor.id}`} state={{ id: doctor.id }}>View Doctor</Link>
+                      <Link className="view-doc-btn btn" to={`/doctors/${doctor.id}`} state={{ id: doctor.id, image: docImg }}>View Doctor</Link>
                     </div>
                   </div>
                   <AppointmentModal doctor={doc} />

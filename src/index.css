@@ -6,6 +6,10 @@
   color: #769422;
 }
 
+.bg-grey {
+  background-color: #e4e4e4;
+}
+
 .dotted-border {
   border-bottom: 3px dotted lightgrey;
 }

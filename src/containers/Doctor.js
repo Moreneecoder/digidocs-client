@@ -22,7 +22,7 @@ const Doctor = () => {
   });
 
   if (loggedIn || userAuth()) {
-    const { id } = location.state;
+    const { id, image } = location.state;
 
     useHttp(
       `http://digidocs-api.herokuapp.com/api/v1/doctors/${id}`,
@@ -32,31 +32,43 @@ const Doctor = () => {
 
     if (doctor) {
       return (
-        <div>
-          <h3>
-            Name:
-            {' '}
-            {doctor.name}
-          </h3>
-          <p className="fw-bolder">
-            Description:
-            {doctor.description}
-          </p>
-          <p>
-            {doctor.phone}
-            {' '}
-            |
-            {' '}
-            {doctor.email}
-          </p>
-          <p>
-            Address:
-            {' '}
-            <span className="fw-bolder">{doctor.office_address}</span>
-          </p>
+        <div className="Doctor">
+          <div className="row mb-5 mt-5 p-4">
+            <div className="col-12 col-md-7">
+              <img src={image} className="img-fluid" alt="doctor" />
+            </div>
 
-          <button type="button" onClick={() => setDoc(doctor)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
-          <span><AppointmentModal doctor={doc} /></span>
+            <div className="col-12 offset-md-1 col-md-4 pe-3">
+              <h4 className="text-end">{doctor.name.toUpperCase()}</h4>
+              <p className="text-muted text-end">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio officiis, dolores at laborum alias quae illum. Aspernatur,
+                doloribus.
+              </p>
+              <div className="bg-grey py-2 px-3">
+                <p className="float-start m-0">Email:</p>
+                <p className="float-end m-0">{doctor.email}</p>
+                <div className="clearfix" />
+              </div>
+              <div className="py-2 px-3">
+                <p className="float-start m-0">Phone:</p>
+                <p className="float-end m-0">{doctor.phone}</p>
+                <div className="clearfix" />
+              </div>
+
+              <div className="bg-grey py-2 px-3">
+                {/* <p className="float-start m-0">Address:</p> */}
+                <p className="m-0">{doctor.office_address}</p>
+                <div className="clearfix" />
+              </div>
+              <button type="button" onClick={() => setDoc({ ...doctor, image })} className="btn main-bg-color text-white py-2 px-3 mt-4 rounded-pill float-end" data-bs-toggle="modal" data-bs-target="#AppointmentModal">
+                {' '}
+                Book Appointment
+              </button>
+              <span><AppointmentModal doctor={doc} /></span>
+            </div>
+          </div>
+
         </div>
       );
     }

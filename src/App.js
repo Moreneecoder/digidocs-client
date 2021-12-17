@@ -18,7 +18,7 @@ const App = () => (
       {/* <div className="d-flex" id="wrapper">
         <SideNav />
         <div id="page-content-wrapper"> */}
-      <div className="d-flex">
+      <div>
         <SideNav />
 
         <div className="RestOfApp">
