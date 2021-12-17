@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadAppointment } from '../actions';
+import MedicalImg1 from '../images/medical_care.svg';
+import MedicalImg2 from '../images/medicine.svg';
 
 const Appointment = () => {
   const location = useLocation();
@@ -22,39 +24,45 @@ const Appointment = () => {
 
     if (appointment) {
       return (
-        <div>
-          <h3>
-            Title:
-            {' '}
-            {appointment.appointment.title}
-          </h3>
-          <p className="fw-bolder">
-            Description:
-            {appointment.appointment.description}
-          </p>
-          <p>
-            Doctor:
-            {' '}
-            <Link to={`/doctors/${appointment.doctor.id}`} state={{ id: appointment.doctor.id }}>{appointment.doctor.name}</Link>
-            {' '}
-            |
-            {' '}
-            {appointment.doctor.phone}
-            {' '}
-            |
-            {' '}
-            {appointment.doctor.email}
-          </p>
-          <p>
-            Address:
-            {' '}
-            <span className="fw-bolder">{appointment.doctor.office_address}</span>
-          </p>
-          <p>
-            Time:
-            {' '}
-            {appointment.appointment.time}
-          </p>
+        <div className="Appointment">
+          <div className="row mb-5 mt-5 p-4">
+            <div className="col-12 col-md-3 align-self-center">
+              <img src={MedicalImg1} className="img-fluid" alt="doctor" />
+            </div>
+
+            <div className="col-12 offset-md-1 col-md-3 align-self-center">
+              <img src={MedicalImg2} className="img-fluid" alt="doctor" />
+            </div>
+
+            <div className="col-12 offset-md-1 col-md-4 pe-3">
+              <h4 className="text-end">{appointment.appointment.title.toUpperCase()}</h4>
+              <p className="text-muted text-end">
+                {appointment.appointment.description}
+              </p>
+              <div className="bg-grey py-2 px-3">
+                <p className="float-start m-0">Doctor:</p>
+                <Link className="float-end m-0 text-decoration-none main-text-color app-link" to={`/doctors/${appointment.doctor.id}`} state={{ id: appointment.doctor.id }}>{appointment.doctor.name}</Link>
+                {/* <p >{doctor.email}</p> */}
+                <div className="clearfix" />
+              </div>
+              <div className="py-2 px-3">
+                <p className="float-start m-0">Phone:</p>
+                <p className="float-end m-0">{appointment.doctor.phone}</p>
+                <div className="clearfix" />
+              </div>
+
+              <div className="bg-grey py-2 px-3">
+                <p className="float-start m-0">Time:</p>
+                <p className="float-end m-0">{appointment.appointment.time}</p>
+                <div className="clearfix" />
+              </div>
+
+              <div className="py-2 px-3">
+                <p className="m-0">{appointment.doctor.office_address}</p>
+                <div className="clearfix" />
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

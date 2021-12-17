@@ -6,7 +6,3 @@
 .appointment-items span {
   flex: 1;
 }
-
-.app-link:hover {
-  color: #9bbf2e;
-}

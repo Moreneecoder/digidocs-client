@@ -2,3 +2,7 @@
   flex-basis: 85%;
   margin-left: 15%;
 }
+
+.app-link:hover {
+  color: #9bbf2e;
+}
