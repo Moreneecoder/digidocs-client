@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadAppointment } from '../actions';
+import { formatDate, formatTime } from '../helpers/time';
 import MedicalImg1 from '../images/medical_care.svg';
 import MedicalImg2 from '../images/medicine.svg';
 
@@ -52,12 +53,22 @@ const Appointment = () => {
               </div>
 
               <div className="bg-grey py-2 px-3">
-                <p className="float-start m-0">Time:</p>
-                <p className="float-end m-0">{appointment.appointment.time}</p>
+                <p className="float-start m-0">Date:</p>
+                <p className="float-end m-0">
+                  {formatDate(appointment.appointment.time)}
+                </p>
                 <div className="clearfix" />
               </div>
 
               <div className="py-2 px-3">
+                <p className="float-start m-0">Time:</p>
+                <p className="float-end m-0">
+                  {formatTime(appointment.appointment.time)}
+                </p>
+                <div className="clearfix" />
+              </div>
+
+              <div className="bg-grey py-2 px-3">
                 <p className="m-0">{appointment.doctor.office_address}</p>
                 <div className="clearfix" />
               </div>
