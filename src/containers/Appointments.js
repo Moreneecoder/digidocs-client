@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadAppointments } from '../actions';
+import formatDate from '../helpers/time';
 import '../styles/Appointments.css';
 
 const Appointments = () => {
@@ -49,7 +50,7 @@ const Appointments = () => {
                   </span>
                   <span><Link className="app-link text-decoration-none main-text-color" to={`/appointments/${data.appointment.id}`} state={{ id: data.appointment.id }}>{data.appointment.title}</Link></span>
                   <span><Link className="app-link text-decoration-none main-text-color" to={`/doctors/${data.doctor.id}`} state={{ id: data.doctor.id }}>{data.doctor.name}</Link></span>
-                  <span>{data.appointment.time}</span>
+                  <span>{formatDate(data.appointment.time)}</span>
                   <span>{data.appointment.time}</span>
                 </div>
               );
@@ -59,7 +60,8 @@ const Appointments = () => {
       );
     }
 
-    return 'YOU HAVE NO APPOINTMENTS YET!';
+    // return 'YOU HAVE NO APPOINTMENTS YET!';
+    return <div>{formatDate('2021-12-09T20:49:21.808Z')}</div>;
   }
 
   //   navigate('/register');

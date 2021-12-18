@@ -29,10 +29,10 @@ const Navbar = () => {
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link main-bg-color" to="/login">Login</Link>
+                  <Link className="nav-link main-bg-color text-white me-2 px-3" to="/login">Login</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link main-bg-color" to="/register">Register</Link>
+                  <Link className="nav-link main-bg-color text-white px-3" to="/register">Register</Link>
                 </li>
               </>
             )}
