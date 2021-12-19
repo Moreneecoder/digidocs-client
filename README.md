@@ -1,5 +1,5 @@
 
-# LigaPrimero
+# DigiDocs-Client: Microverse Final Capstone Project
 
 A React-Redux app that helps users book appointments with doctors. The app fetches dependent data from an external API built with Ruby on Rails. This is the final assessment project of my Microverse Fullstack web development program.
 
