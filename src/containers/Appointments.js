@@ -61,7 +61,12 @@ const Appointments = () => {
       );
     }
 
-    return 'YOU HAVE NO APPOINTMENTS YET!';
+    return (
+      <div className="container col-md-8 mt-5 py-4 text-center">
+        <h3 className="alert alert-info">YOU HAVE NO APPOINTMENTS YET!</h3>
+        <Link className="btn btn-lg main-bg-color text-white" to="/doctors">Book Apointment</Link>
+      </div>
+    );
   }
 
   //   navigate('/register');
