@@ -1,6 +1,5 @@
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { postReq } from '../hooks/http';
 
 const AppointmentModal = (props) => {
@@ -72,13 +71,7 @@ const AppointmentModal = (props) => {
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Voluptatum quo pariatur expedita possimus labore, hic
                       laudantium dicta soluta rerum et illo explicabo vel repellat
-                      odio voluptatibus temporibus officia ab non?
-                      {' '}
-                      <Link to={`/doctors/${doctor.id}`} state={{ id: doctor.id }}>
-                        Learn More About
-                        {' '}
-                        {doctor.name}
-                      </Link>
+                      odio voluptatibus temporibus officia ab non.
                     </p>
                   </div>
                 </div>
