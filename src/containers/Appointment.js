@@ -26,18 +26,18 @@ const Appointment = () => {
     if (appointment) {
       return (
         <div className="Appointment">
-          <div className="row mb-5 mt-5 p-4">
-            <div className="col-12 col-md-3 align-self-center">
+          <div className="row mb-5 mt-2 mt-lg-5 p-4">
+            <div className="d-none d-lg-block col-12 col-lg-3 align-self-center">
               <img src={MedicalImg1} className="img-fluid" alt="doctor" />
             </div>
 
-            <div className="col-12 offset-md-1 col-md-3 align-self-center">
+            <div className="offset-3 col-6 offset-lg-1 col-lg-3 align-self-center">
               <img src={MedicalImg2} className="img-fluid" alt="doctor" />
             </div>
 
-            <div className="col-12 offset-md-1 col-md-4 pe-3">
-              <h4 className="text-end">{appointment.appointment.title.toUpperCase()}</h4>
-              <p className="text-muted text-end">
+            <div className="col-12 offset-lg-1 col-lg-4 pe-3">
+              <h4 className="text-center text-lg-end">{appointment.appointment.title.toUpperCase()}</h4>
+              <p className="text-muted text-center text-lg-end">
                 {appointment.appointment.description}
               </p>
               <div className="bg-grey py-2 px-3">
