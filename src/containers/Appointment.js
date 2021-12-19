@@ -26,7 +26,12 @@ const Appointment = () => {
     if (appointment) {
       return (
         <div className="Appointment">
-          <div className="row mb-5 mt-2 mt-lg-5 p-4">
+          <div className="col-12 col-md-6 mx-auto text-center mt-5 py-4">
+            <h2>APPOINTMENT</h2>
+            <span className="text-muted">A detailed view of an appointment</span>
+            <div className="dotted-border col-3 mx-auto pt-4" />
+          </div>
+          <div className="row mb-5 p-4">
             <div className="d-none d-lg-block col-12 col-lg-3 align-self-center">
               <img src={MedicalImg1} className="img-fluid" alt="doctor" />
             </div>
