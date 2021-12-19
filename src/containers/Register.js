@@ -28,6 +28,8 @@ const Register = () => {
       name, phone, email,
     };
 
+    console.log(userData);
+
     if (isDoctor) {
       userData.office_address = address;
       userData.is_doctor = isDoctor;
@@ -76,7 +78,7 @@ const Register = () => {
         </div>
         <div className="mb-3">
           <span>Email address</span>
-          <input type="email" className="form-control" required placeholder="Email" onChange={(e) => handleInputChange(e, 'phoneInput')} aria-describedby="emailHelp" />
+          <input type="email" className="form-control" required placeholder="Email" onChange={(e) => handleInputChange(e, 'emailInput')} aria-describedby="emailHelp" />
           <div id="emailHelp" className="form-text main-text-color">We&apos;ll never share your email with anyone else.</div>
         </div>
         <div className="mb-3 form-check">

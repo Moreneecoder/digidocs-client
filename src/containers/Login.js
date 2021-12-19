@@ -46,14 +46,24 @@ const Login = () => {
 
   return (
     <div className="Login container">
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input className="form-control mt-1" required placeholder="Name" onChange={(e) => handleInputChange(e, 'nameInput')} />
-        <input className="form-control mt-1" required placeholder="Email" onChange={(e) => handleInputChange(e, 'emailInput')} />
+      <form className="card mt-5 p-4 offset-md-2 col-md-8 offset-lg-3 col-lg-6" onSubmit={(e) => handleSubmit(e)}>
+        <div className="mb-3">
+          <span>UserName</span>
+          <input className="form-control mt-1" required placeholder="Name" onChange={(e) => handleInputChange(e, 'nameInput')} />
+        </div>
+        <div className="mb-3">
+          <span>Email address</span>
+          <input className="form-control mt-1" required placeholder="Email" onChange={(e) => handleInputChange(e, 'emailInput')} />
+        </div>
 
-        <button type="submit" className="btn btn-success mt-1">Login</button>
+        <button type="submit" className="btn text-white main-bg-color">Login</button>
+        <hr />
+        <div className="text-end">
+          <span>Don&apos;t have an account?</span>
+          {' '}
+          <Link className="main-bg-color text-decoration-none text-white me-2 py-2 px-3" to="/register">Register</Link>
+        </div>
       </form>
-
-      <Link to="/register">Register</Link>
     </div>
   );
 };
