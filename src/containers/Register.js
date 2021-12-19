@@ -64,23 +64,41 @@ const Register = () => {
   };
 
   return (
-    <div className="Register container">
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input className="form-control mt-1" required placeholder="Name" onChange={(e) => handleInputChange(e, 'nameInput')} />
-        <input className="form-control mt-1" required placeholder="Phone" onChange={(e) => handleInputChange(e, 'phoneInput')} />
-        <input className="form-control mt-1" required placeholder="Email" onChange={(e) => handleInputChange(e, 'emailInput')} />
-
-        <div className="form-check">
+    <div className="Register container pt-4">
+      <form className="card mt-5 p-4 offset-md-3 col-md-6" onSubmit={(e) => handleSubmit(e)}>
+        <div className="mb-3">
+          <span>UserName</span>
+          <input type="text" className="form-control" required placeholder="Name" onChange={(e) => handleInputChange(e, 'nameInput')} aria-describedby="nameHelp" />
+        </div>
+        <div className="mb-3">
+          <span>Phone</span>
+          <input type="text" className="form-control" required placeholder="Phone" onChange={(e) => handleInputChange(e, 'phoneInput')} />
+        </div>
+        <div className="mb-3">
+          <span>Email address</span>
+          <input type="email" className="form-control" required placeholder="Email" onChange={(e) => handleInputChange(e, 'phoneInput')} aria-describedby="emailHelp" />
+          <div id="emailHelp" className="form-text main-text-color">We&apos;ll never share your email with anyone else.</div>
+        </div>
+        <div className="mb-3 form-check">
+          <input type="checkbox" className="form-check-input" onChange={(e) => { handleCheckChange(e); }} id="is-doctor-check" />
           <span className="fw-bolder">Are You Regsitering As A Doctor?</span>
-          <input className="form-check-input" type="checkbox" onChange={(e) => { handleCheckChange(e); }} id="is-doctor-check" />
         </div>
 
-        {isDoctor ? <input className="form-control mt-1" required placeholder="Address" onChange={(e) => handleInputChange(e, 'addressInput')} /> : ''}
+        {isDoctor ? (
+          <div className="mb-3">
+            <span>Address</span>
+            <input className="form-control" required placeholder="Address" onChange={(e) => handleInputChange(e, 'addressInput')} />
+          </div>
+        ) : ''}
 
-        <button type="submit" className="btn btn-success mt-1">Register</button>
+        <button type="submit" className="btn text-white main-bg-color">Register</button>
+        <hr />
+        <div className="text-end">
+          <span>Already have an account?</span>
+          {' '}
+          <Link className="main-bg-color text-decoration-none text-white me-2 py-2 px-3" to="/login">Login</Link>
+        </div>
       </form>
-
-      <Link to="/login">Login</Link>
     </div>
   );
 };

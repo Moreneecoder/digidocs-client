@@ -43,7 +43,6 @@ const Appointment = () => {
               <div className="bg-grey py-2 px-3">
                 <p className="float-start m-0">Doctor:</p>
                 <Link className="float-end m-0 text-decoration-none main-text-color app-link" to={`/doctors/${appointment.doctor.id}`} state={{ id: appointment.doctor.id }}>{appointment.doctor.name}</Link>
-                {/* <p >{doctor.email}</p> */}
                 <div className="clearfix" />
               </div>
               <div className="py-2 px-3">

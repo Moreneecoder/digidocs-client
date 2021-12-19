@@ -60,14 +60,7 @@ const Appointments = () => {
       );
     }
 
-    // return 'YOU HAVE NO APPOINTMENTS YET!';
-    return (
-      <div>
-        {formatDate('2021-12-09T20:49:21.808Z')}
-        {' '}
-        {formatTime('2021-12-09T20:49:21.808Z')}
-      </div>
-    );
+    return 'YOU HAVE NO APPOINTMENTS YET!';
   }
 
   //   navigate('/register');
