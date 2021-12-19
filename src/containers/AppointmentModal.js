@@ -92,7 +92,7 @@ const AppointmentModal = (props) => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" className="btn btn-primary">Book</button>
+                <button type="submit" className="btn px-3 main-bg-color">Book</button>
               </div>
             </div>
           </form>
