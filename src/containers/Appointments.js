@@ -1,4 +1,3 @@
-// // // import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
@@ -8,7 +7,6 @@ import { formatDate, formatTime } from '../helpers/time';
 import '../styles/Appointments.css';
 
 const Appointments = () => {
-//   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.user);
   const appointments = useSelector((state) => state.appointments);
   const userInfo = JSON.parse(localStorage.getItem('user'));
@@ -68,7 +66,6 @@ const Appointments = () => {
     );
   }
 
-  //   navigate('/register');
   window.location.href = '/login';
   return null;
 };

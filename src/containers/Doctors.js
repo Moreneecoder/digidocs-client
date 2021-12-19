@@ -1,4 +1,3 @@
-// import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -13,7 +12,6 @@ import MaleDoctor from '../images/doctor-male.jpeg';
 import '../styles/Doctors.css';
 
 const Doctors = () => {
-//   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
 
@@ -85,7 +83,6 @@ const Doctors = () => {
     );
   }
 
-  //   navigate('/register');
   window.location.href = '/login';
   return null;
 };

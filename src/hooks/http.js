@@ -1,8 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-// import env from 'react-dotenv';
-
-// const corsUrl = 'https://cors-anywhere.herokuapp.com';
 
 const useHttp = (url, action, dependencies) => {
   const dispatch = useDispatch();

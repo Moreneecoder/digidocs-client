@@ -2,7 +2,6 @@ import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { postReq } from '../hooks/http';
-// import Man from '../images/man_sketch.svg';
 
 const AppointmentModal = (props) => {
   const { doctor } = props;

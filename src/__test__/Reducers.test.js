@@ -164,7 +164,6 @@ describe('Reducers Tests', () => {
     };
 
     test('returns the correct list of appointments as state', () => {
-    //   console.log(appointmentsReducer(state, action));
       expect(appointmentsReducer(state, action)).toEqual(appointmentsPayload);
     });
 
