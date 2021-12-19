@@ -65,7 +65,7 @@ const Register = () => {
 
   return (
     <div className="Register container pt-4">
-      <form className="card mt-5 p-4 offset-md-3 col-md-6" onSubmit={(e) => handleSubmit(e)}>
+      <form className="card mt-5 p-4 offset-md-2 col-md-8 offset-lg-3 col-lg-6" onSubmit={(e) => handleSubmit(e)}>
         <div className="mb-3">
           <span>UserName</span>
           <input type="text" className="form-control" required placeholder="Name" onChange={(e) => handleInputChange(e, 'nameInput')} aria-describedby="nameHelp" />
