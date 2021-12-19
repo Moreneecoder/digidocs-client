@@ -77,7 +77,12 @@ const Doctors = () => {
       );
     }
 
-    return "COULDN'T LOAD DOCTORS";
+    return (
+      <div className="container col-md-8 mt-5 py-4 text-center">
+        <h3 className="alert alert-info">COULD&apos;T LOAD DOCTORS</h3>
+        <button type="button" onClick={() => window.location.reload()} className="text-white btn btn-md btn-md-lg main-bg-color">&#8635; Refresh Page</button>
+      </div>
+    );
   }
 
   //   navigate('/register');
