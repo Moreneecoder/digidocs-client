@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/users';
+    let fetchUrl = 'https://digidocs-api.herokuapp.com/api/v1/users';
     let userRole = 'users';
 
     const userData = {
@@ -31,7 +31,7 @@ const Register = () => {
     if (isDoctor) {
       userData.office_address = address;
       userData.is_doctor = isDoctor;
-      fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/doctors';
+      fetchUrl = 'https://digidocs-api.herokuapp.com/api/v1/doctors';
       userRole = 'doctors';
     }
 

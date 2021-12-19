@@ -25,7 +25,7 @@ const Doctor = () => {
     const { id, image } = location.state;
 
     useHttp(
-      `http://digidocs-api.herokuapp.com/api/v1/doctors/${id}`,
+      `https://digidocs-api.herokuapp.com/api/v1/doctors/${id}`,
       loadDoctor,
       [],
     );

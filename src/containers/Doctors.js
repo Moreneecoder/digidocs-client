@@ -25,7 +25,7 @@ const Doctors = () => {
   });
 
   if (loggedIn || userAuth()) {
-    useHttp('http://digidocs-api.herokuapp.com/api/v1/doctors',
+    useHttp('https://digidocs-api.herokuapp.com/api/v1/doctors',
       loadDoctors,
       []);
 

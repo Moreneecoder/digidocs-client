@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const fetchUrl = 'http://digidocs-api.herokuapp.com/api/v1/login';
+    const fetchUrl = 'https://digidocs-api.herokuapp.com/api/v1/login';
     let userRole = 'users';
 
     const userData = {

@@ -37,7 +37,7 @@ const AppointmentModal = (props) => {
       time,
     };
 
-    const fetchUrl = `http://digidocs-api.herokuapp.com/api/v1/users/${user.data.id}/appointments`;
+    const fetchUrl = `https://digidocs-api.herokuapp.com/api/v1/users/${user.data.id}/appointments`;
 
     await postReq(fetchUrl, appDetails);
   };
