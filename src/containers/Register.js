@@ -28,8 +28,6 @@ const Register = () => {
       name, phone, email,
     };
 
-    console.log(userData);
-
     if (isDoctor) {
       userData.office_address = address;
       userData.is_doctor = isDoctor;

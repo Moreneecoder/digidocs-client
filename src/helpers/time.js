@@ -5,7 +5,6 @@ const checkTime = (i) => {
 };
 
 const formatDate = (date) => {
-  console.log(date);
   const days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
 
   const months = [
@@ -13,10 +12,9 @@ const formatDate = (date) => {
     'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
   ];
 
-  const parsedDate = new Date('2021-12-19T20:49:21.808Z');
+  const parsedDate = new Date(date);
   const parsedDay = parsedDate.getDay() === 0 ? 6 : parsedDate.getDay() - 1;
 
-  console.log(parsedDay);
   const formattedDate = `${days[parsedDay]}, ${months[parsedDate.getMonth()]} ${parsedDate.getDate()}, ${parsedDate.getFullYear()}`;
   return formattedDate;
 };

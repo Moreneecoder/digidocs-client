@@ -14,7 +14,6 @@ const Appointments = () => {
   const userInfo = JSON.parse(localStorage.getItem('user'));
 
   if (loggedIn || userAuth()) {
-    console.log(userInfo);
     useHttp(`http://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`,
       loadAppointments,
       []);
