@@ -1,5 +1,6 @@
 import userReducer from '../reducers/userReducer';
 import doctorsReducer from '../reducers/doctorsReducer';
+import doctorReducer from '../reducers/doctorReducer';
 
 const state = null;
 
@@ -75,6 +76,35 @@ describe('Reducers Tests', () => {
 
     test('must have an office address', () => {
       expect(doctorsReducer(state, action)[0].office_address).not.toBeNull();
+    });
+
+    test('returns null state when wrong action type is passed', () => {
+      action.type = 'SOMETHING_ELSE';
+      expect(doctorsReducer(state, action)).toEqual(null);
+    });
+  });
+
+    describe('doctorReducer Tests', () => {
+    const action = {
+      type: 'LOAD_DOCTOR',
+      doctor: doctorsPayload[0],
+    };
+
+    test('returns the correct list of doctors as state', () => {
+      expect(doctorReducer(state, action)).toEqual(doctorsPayload[0]);
+    });
+
+    test('must have is_doctor key set to true', () => {
+        expect(doctorReducer(state, action).is_doctor).toBeTruthy();
+      });
+
+    test('must have an office address', () => {
+      expect(doctorReducer(state, action).office_address).not.toBeNull();
+    });
+
+    test('returns null state when wrong action type is passed', () => {
+      action.type = 'SOMETHING_ELSE';
+      expect(doctorReducer(state, action)).toEqual(null);
     });
   });
 });
