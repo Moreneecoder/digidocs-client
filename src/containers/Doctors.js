@@ -17,6 +17,8 @@ const Doctors = () => {
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
 
+  console.log(loggedIn);
+
   const [doc, setDoc] = useState({
     id: 0,
     name: '',

@@ -1,5 +1,6 @@
 const userReducer = (state = null, action) => {
   let output;
+  console.log(action);
 
   switch (action.type) {
     case 'AUTH_SUCCESS':

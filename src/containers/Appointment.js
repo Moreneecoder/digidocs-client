@@ -18,7 +18,7 @@ const Appointment = () => {
     const { id } = location.state;
 
     useHttp(
-      `http://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.id}/appointments/${id}`,
+      `http://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.data.id}/appointments/${id}`,
       loadAppointment,
       [],
     );

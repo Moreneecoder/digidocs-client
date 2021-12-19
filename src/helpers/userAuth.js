@@ -1,6 +1,6 @@
 const userAuth = () => {
   const user = localStorage.getItem('user');
-  return user != null;
+  return user;
 };
 
 export default userAuth;

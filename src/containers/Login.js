@@ -25,8 +25,8 @@ const Login = () => {
 
     if (response.status === 200) {
       if (response.user.is_doctor) userRole = 'doctors';
-      localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user.id }));
-      dispatch(authSuccess(true));
+      localStorage.setItem('user', JSON.stringify({ role: userRole, data: response.user }));
+      dispatch(authSuccess(userData));
       navigate('/');
     }
   };

@@ -20,7 +20,7 @@ const Navbar = () => {
             {loggedIn || userAuth() ? (
               <>
                 <li className="nav-item">
-                  <span className="nav-link fw-bolder text-dark">UserName</span>
+                  <span className="nav-link fw-bolder text-dark">{JSON.parse(userAuth()).data.name}</span>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link text-white main-bg-color px-3" to="/logout">Logout</Link>

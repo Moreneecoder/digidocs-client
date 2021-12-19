@@ -40,7 +40,7 @@ const Register = () => {
     const response = await postReq(fetchUrl, userData);
 
     if (response.status === 201) {
-      localStorage.setItem('user', JSON.stringify({ role: userRole, id: response.user }));
+      localStorage.setItem('user', JSON.stringify({ role: userRole, data: response.user }));
       dispatch(authSuccess(true));
       navigate('/');
     }
