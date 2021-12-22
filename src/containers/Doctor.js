@@ -13,14 +13,21 @@ const Doctor = () => {
   const loggedIn = useSelector((state) => state.user);
   const doctor = useSelector((state) => state.doctor);
 
-  const [doc, setDoc] = useState({
-    id: 0,
-    name: '',
-    phone: '',
-    email: '',
-    office_address: '',
-    image: '',
-  });
+  const [idx, setIdx] = useState(0);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [officeAdd, setOfficeAdd] = useState('');
+  const [img, setImg] = useState('');
+
+  const handleDoctorData = (data, Img) => {
+    setIdx(data.id);
+    setName(data.name);
+    setPhone(data.phone);
+    setEmail(data.email);
+    setOfficeAdd(data.office_address);
+    setImg(Img);
+  };
 
   if (loggedIn || userAuth()) {
     const { id, image } = location.state;
@@ -62,11 +69,16 @@ const Doctor = () => {
                 <p className="m-0">{doctor.office_address}</p>
                 <div className="clearfix" />
               </div>
-              <button type="button" onClick={() => setDoc({ ...doctor, image })} className="btn main-bg-color text-white py-2 px-3 mt-4 rounded-pill float-end" data-bs-toggle="modal" data-bs-target="#AppointmentModal">
+              <button type="button" onClick={() => handleDoctorData(doctor, image)} className="btn main-bg-color text-white py-2 px-3 mt-4 rounded-pill float-end" data-bs-toggle="modal" data-bs-target="#AppointmentModal">
                 {' '}
                 Book Appointment
               </button>
-              <span><AppointmentModal doctor={doc} /></span>
+              <span>
+                <AppointmentModal doctor={{
+                  id: idx, name, phone, email, office_address: officeAdd, image: img,
+                }}
+                />
+              </span>
             </div>
           </div>
 
