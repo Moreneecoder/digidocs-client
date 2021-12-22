@@ -16,14 +16,21 @@ const Doctors = () => {
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
 
-  const [doc, setDoc] = useState({
-    id: 0,
-    name: '',
-    phone: '',
-    email: '',
-    office_address: '',
-    image: '',
-  });
+  const [id, setId] = useState(0);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [officeAdd, setOfficeAdd] = useState('');
+  const [image, setImage] = useState('');
+
+  const handleDoctorData = (data, img) => {
+    setId(data.id);
+    setName(data.name);
+    setPhone(data.phone);
+    setEmail(data.email);
+    setOfficeAdd(data.office_address);
+    setImage(img);
+  };
 
   if (loggedIn || userAuth()) {
     useHttp(`${baseUrl()}/api/v1/doctors`,
@@ -63,11 +70,14 @@ const Doctors = () => {
                     </span>
 
                     <div className="mt-2">
-                      <button type="button" onClick={() => setDoc({ ...doctor, image: docImg })} className="btn main-bg-color text-white me-2" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
+                      <button type="button" onClick={() => handleDoctorData(doctor, docImg)} className="btn main-bg-color text-white me-2" data-bs-toggle="modal" data-bs-target="#AppointmentModal">Book Appointment</button>
                       <Link className="view-doc-btn btn" to={`/doctors/${doctor.id}`} state={{ id: doctor.id, image: docImg }}>View Doctor</Link>
                     </div>
                   </div>
-                  <AppointmentModal doctor={doc} />
+                  <AppointmentModal doctor={{
+                    id, name, phone, email, office_address: officeAdd, image,
+                  }}
+                  />
                 </div>
               );
             })}
