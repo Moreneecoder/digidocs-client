@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import { postReq } from '../hooks/http';
+import baseUrl from '../helpers/global_constants';
 
 const AppointmentModal = (props) => {
   const { doctor } = props;
@@ -36,7 +37,7 @@ const AppointmentModal = (props) => {
       time,
     };
 
-    const fetchUrl = `https://digidocs-api.herokuapp.com/api/v1/users/${user.data.id}/appointments`;
+    const fetchUrl = `${baseUrl()}/api/v1/users/${user.data.id}/appointments`;
 
     await postReq(fetchUrl, appDetails);
   };

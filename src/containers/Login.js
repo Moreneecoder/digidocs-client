@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { postReq } from '../hooks/http';
 import { authSuccess } from '../actions';
+import baseUrl from '../helpers/global_constants';
 
 const Login = () => {
   const [name, setName] = useState('');
@@ -14,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const fetchUrl = 'https://digidocs-api.herokuapp.com/api/v1/login';
+    const fetchUrl = `${baseUrl()}/api/v1/login`;
     let userRole = 'users';
 
     const userData = {

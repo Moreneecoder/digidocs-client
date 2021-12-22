@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadAppointments } from '../actions';
+import baseUrl from '../helpers/global_constants';
 import { formatDate, formatTime } from '../helpers/time';
 import '../styles/Appointments.css';
 
@@ -12,7 +13,7 @@ const Appointments = () => {
   const userInfo = JSON.parse(localStorage.getItem('user'));
 
   if (loggedIn || userAuth()) {
-    useHttp(`https://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`,
+    useHttp(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`,
       loadAppointments,
       []);
 

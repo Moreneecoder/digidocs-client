@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
+import baseUrl from '../helpers/global_constants';
 import { loadDoctors } from '../actions';
 import AppointmentModal from './AppointmentModal';
 import BlackDoctor from '../images/black-doctor.jpeg';
@@ -25,7 +26,7 @@ const Doctors = () => {
   });
 
   if (loggedIn || userAuth()) {
-    useHttp('https://digidocs-api.herokuapp.com/api/v1/doctors',
+    useHttp(`${baseUrl()}/api/v1/doctors`,
       loadDoctors,
       []);
 

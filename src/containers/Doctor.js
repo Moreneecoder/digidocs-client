@@ -5,6 +5,7 @@ import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadDoctor } from '../actions';
 import AppointmentModal from './AppointmentModal';
+import baseUrl from '../helpers/global_constants';
 
 const Doctor = () => {
   const location = useLocation();
@@ -25,7 +26,7 @@ const Doctor = () => {
     const { id, image } = location.state;
 
     useHttp(
-      `https://digidocs-api.herokuapp.com/api/v1/doctors/${id}`,
+      `${baseUrl()}/api/v1/doctors/${id}`,
       loadDoctor,
       [],
     );

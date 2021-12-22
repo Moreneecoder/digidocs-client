@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { useHttp } from '../hooks/http';
 import { loadAppointment } from '../actions';
+import baseUrl from '../helpers/global_constants';
 import { formatDate, formatTime } from '../helpers/time';
 import MedicalImg1 from '../images/medical_care.svg';
 import MedicalImg2 from '../images/medicine.svg';
@@ -18,7 +19,7 @@ const Appointment = () => {
     const { id } = location.state;
 
     useHttp(
-      `https://digidocs-api.herokuapp.com/api/v1/${userInfo.role}/${userInfo.data.id}/appointments/${id}`,
+      `${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments/${id}`,
       loadAppointment,
       [],
     );

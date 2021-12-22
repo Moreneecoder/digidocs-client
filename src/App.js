@@ -14,9 +14,6 @@ const App = () => (
 
   <BrowserRouter>
     <div className="App">
-      {/* <div className="d-flex" id="wrapper">
-        <SideNav />
-        <div id="page-content-wrapper"> */}
       <div>
         <SideNav />
 
@@ -33,8 +30,6 @@ const App = () => (
           </Routes>
         </div>
       </div>
-      {/* </div>
-      </div> */}
     </div>
   </BrowserRouter>
 );
