@@ -9,7 +9,6 @@ import Login from './containers/Login';
 import Logout from './containers/Logout';
 import SideNav from './components/SideNav';
 import './styles/App.css';
-import './js/scripts';
 
 const App = () => (
 
