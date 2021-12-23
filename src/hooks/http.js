@@ -36,10 +36,11 @@ const postReq = (url, data) => fetch(url, {
 })
   .then((response) => response.json());
 
+const getDoctors = async () => getReq(`${baseUrl()}/api/v1/doctors`);
 const getAppointments = async () => getReq(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`);
 const getAppointment = async (id) => getReq(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments/${id}`);
 const createAppointment = async (user, data) => postReq(`${baseUrl()}/api/v1/users/${user.data.id}/appointments`, data);
 
 export {
-  useHttp, postReq, getAppointments, getAppointment, createAppointment,
+  useHttp, postReq, getAppointments, getAppointment, createAppointment, getDoctors,
 };

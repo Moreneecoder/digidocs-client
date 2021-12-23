@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
-import { useHttp } from '../hooks/http';
-import baseUrl from '../helpers/global_constants';
+import { getDoctors } from '../hooks/http';
 import { loadDoctors } from '../actions';
 import AppointmentModal from './AppointmentModal';
 import BlackDoctor from '../images/black-doctor.jpeg';
@@ -15,6 +14,8 @@ import '../styles/Doctors.css';
 const Doctors = () => {
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
+
+  const dispatch = useDispatch();
 
   const [id, setId] = useState(0);
   const [name, setName] = useState('');
@@ -33,9 +34,9 @@ const Doctors = () => {
   };
 
   if (loggedIn || userAuth()) {
-    useHttp(`${baseUrl()}/api/v1/doctors`,
-      loadDoctors,
-      []);
+    useEffect(() => {
+      getDoctors().then((data) => dispatch(loadDoctors(data)));
+    }, []);
 
     if (doctors.length) {
       let idx = 0;
