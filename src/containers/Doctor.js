@@ -1,17 +1,20 @@
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
-import { useHttp } from '../hooks/http';
+import { getDoctor } from '../hooks/http';
+// import { useHttp } from '../hooks/http';
 import { loadDoctor } from '../actions';
 import AppointmentModal from './AppointmentModal';
-import baseUrl from '../helpers/global_constants';
+// import baseUrl from '../helpers/global_constants';
 
 const Doctor = () => {
   const location = useLocation();
 
   const loggedIn = useSelector((state) => state.user);
   const doctor = useSelector((state) => state.doctor);
+
+  const dispatch = useDispatch();
 
   const [idx, setIdx] = useState(0);
   const [name, setName] = useState('');
@@ -32,11 +35,9 @@ const Doctor = () => {
   if (loggedIn || userAuth()) {
     const { id, image } = location.state;
 
-    useHttp(
-      `${baseUrl()}/api/v1/doctors/${id}`,
-      loadDoctor,
-      [],
-    );
+    useEffect(() => {
+      getDoctor(id).then((data) => dispatch(loadDoctor(data)));
+    }, []);
 
     if (doctor) {
       return (
