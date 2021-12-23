@@ -1,9 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
-import { useHttp } from '../hooks/http';
+import { getAppointment } from '../hooks/http';
 import { loadAppointment } from '../actions';
-import baseUrl from '../helpers/global_constants';
 import { formatDate, formatTime } from '../helpers/time';
 import MedicalImg1 from '../images/medical_care.svg';
 import MedicalImg2 from '../images/medicine.svg';
@@ -13,16 +13,15 @@ const Appointment = () => {
 
   const loggedIn = useSelector((state) => state.user);
   const appointment = useSelector((state) => state.appointment);
-  const userInfo = JSON.parse(localStorage.getItem('user'));
+
+  const dispatch = useDispatch();
 
   if (loggedIn || userAuth()) {
     const { id } = location.state;
 
-    useHttp(
-      `${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments/${id}`,
-      loadAppointment,
-      [],
-    );
+    useEffect(() => {
+      getAppointment(id).then((data) => dispatch(loadAppointment(data)));
+    }, []);
 
     if (appointment) {
       return (

@@ -26,10 +26,7 @@ const getReq = (url) => fetch(url, {
   .then((response) => response.json());
 
 const getAppointments = async () => getReq(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`);
-// console.log(response);
-// // console.log(action);
-// // if (response.status === 200) dispatch(action())
-// dispatch(action(response));
+const getAppointment = async (id) => getReq(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments/${id}`);
 
 const postReq = (url, data) => fetch(url, {
   method: 'POST',
@@ -42,4 +39,6 @@ const postReq = (url, data) => fetch(url, {
 })
   .then((response) => response.json());
 
-export { useHttp, postReq, getAppointments };
+export {
+  useHttp, postReq, getAppointments, getAppointment,
+};
