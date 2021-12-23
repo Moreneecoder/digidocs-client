@@ -1,21 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import userAuth from '../helpers/userAuth';
-import { useHttp } from '../hooks/http';
+import { getAppointments } from '../hooks/http';
 import { loadAppointments } from '../actions';
-import baseUrl from '../helpers/global_constants';
 import { formatDate, formatTime } from '../helpers/time';
 import '../styles/Appointments.css';
 
 const Appointments = () => {
   const loggedIn = useSelector((state) => state.user);
   const appointments = useSelector((state) => state.appointments);
-  const userInfo = JSON.parse(localStorage.getItem('user'));
+
+  const dispatch = useDispatch();
 
   if (loggedIn || userAuth()) {
-    useHttp(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`,
-      loadAppointments,
-      []);
+    useEffect(() => {
+      getAppointments().then((data) => dispatch(loadAppointments(data)));
+    }, []);
 
     if (appointments.length) {
       let idx = 0;

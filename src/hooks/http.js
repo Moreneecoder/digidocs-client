@@ -1,5 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import baseUrl from '../helpers/global_constants';
+
+const userInfo = JSON.parse(localStorage.getItem('user'));
 
 const useHttp = (url, action, dependencies) => {
   const dispatch = useDispatch();
@@ -16,6 +19,18 @@ const useHttp = (url, action, dependencies) => {
   }, dependencies);
 };
 
+const getReq = (url) => fetch(url, {
+  method: 'GET',
+  mode: 'cors',
+})
+  .then((response) => response.json());
+
+const getAppointments = async () => getReq(`${baseUrl()}/api/v1/${userInfo.role}/${userInfo.data.id}/appointments`);
+// console.log(response);
+// // console.log(action);
+// // if (response.status === 200) dispatch(action())
+// dispatch(action(response));
+
 const postReq = (url, data) => fetch(url, {
   method: 'POST',
   mode: 'cors',
@@ -27,4 +42,4 @@ const postReq = (url, data) => fetch(url, {
 })
   .then((response) => response.json());
 
-export { useHttp, postReq };
+export { useHttp, postReq, getAppointments };
