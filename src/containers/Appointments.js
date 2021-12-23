@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import userAuth from '../helpers/userAuth';
-import { getAppointments } from '../hooks/http';
+import { getAppointments } from '../helpers/http';
 import { loadAppointments } from '../actions';
 import { formatDate, formatTime } from '../helpers/time';
 import '../styles/Appointments.css';

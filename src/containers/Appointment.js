@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
-import { getAppointment } from '../hooks/http';
+import { getAppointment } from '../helpers/http';
 import { loadAppointment } from '../actions';
 import { formatDate, formatTime } from '../helpers/time';
 import MedicalImg1 from '../images/medical_care.svg';

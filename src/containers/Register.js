@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { register } from '../hooks/http';
+import { register } from '../helpers/http';
 import { authSuccess } from '../actions';
 
 const Register = () => {

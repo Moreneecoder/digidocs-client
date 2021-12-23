@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
-import { getDoctors } from '../hooks/http';
+import { getDoctors } from '../helpers/http';
 import { loadDoctors } from '../actions';
 import AppointmentModal from './AppointmentModal';
 import BlackDoctor from '../images/black-doctor.jpeg';

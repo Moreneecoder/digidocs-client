@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
-import { createAppointment } from '../hooks/http';
+import { createAppointment } from '../helpers/http';
 
 const AppointmentModal = (props) => {
   const { doctor } = props;

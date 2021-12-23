@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
-import { getDoctor } from '../hooks/http';
+import { getDoctor } from '../helpers/http';
 import { loadDoctor } from '../actions';
 import AppointmentModal from './AppointmentModal';
 
