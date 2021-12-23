@@ -1,7 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
-import { postReq } from '../hooks/http';
-import baseUrl from '../helpers/global_constants';
+import { createAppointment } from '../hooks/http';
 
 const AppointmentModal = (props) => {
   const { doctor } = props;
@@ -37,9 +36,7 @@ const AppointmentModal = (props) => {
       time,
     };
 
-    const fetchUrl = `${baseUrl()}/api/v1/users/${user.data.id}/appointments`;
-
-    await postReq(fetchUrl, appDetails);
+    createAppointment(user, appDetails);
   };
 
   return (
