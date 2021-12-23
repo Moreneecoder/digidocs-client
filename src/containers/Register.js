@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { postReq } from '../hooks/http';
+import { register } from '../hooks/http';
 import { authSuccess } from '../actions';
-import baseUrl from '../helpers/global_constants';
 
 const Register = () => {
   const [isDoctor, setIsDoctorParams] = useState(false);
@@ -21,8 +20,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let fetchUrl = `${baseUrl()}/api/v1/users`;
     let userRole = 'users';
 
     const userData = {
@@ -32,17 +29,17 @@ const Register = () => {
     if (isDoctor) {
       userData.office_address = address;
       userData.is_doctor = isDoctor;
-      fetchUrl = `${baseUrl()}/api/v1/doctors`;
       userRole = 'doctors';
     }
 
-    const response = await postReq(fetchUrl, userData);
-
-    if (response.status === 201) {
-      localStorage.setItem('user', JSON.stringify({ role: userRole, data: response.user }));
-      dispatch(authSuccess(true));
-      navigate('/');
-    }
+    register(userData, userRole)
+      .then((response) => {
+        if (response.status === 201) {
+          localStorage.setItem('user', JSON.stringify({ role: userRole, data: response.user }));
+          dispatch(authSuccess(userData));
+          navigate('/');
+        }
+      });
   };
 
   const handleInputChange = (data, from) => {
