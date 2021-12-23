@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
 import { getDoctor } from '../hooks/http';
-// import { useHttp } from '../hooks/http';
 import { loadDoctor } from '../actions';
 import AppointmentModal from './AppointmentModal';
-// import baseUrl from '../helpers/global_constants';
 
 const Doctor = () => {
   const location = useLocation();
