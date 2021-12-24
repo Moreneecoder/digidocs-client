@@ -19,6 +19,7 @@ const Appointments = () => {
     }, []);
 
     if (appointments.length) {
+      console.log(appointments);
       let idx = 0;
       return (
         <div className="Appointments">
@@ -40,7 +41,7 @@ const Appointments = () => {
               <span>Date</span>
               <span>Time</span>
             </div>
-            {appointments.map((data) => {
+            {appointments.map((appointment) => {
               idx += 1;
               return (
                 <div key={idx} className="appointment-items d-flex bg-light mt-2 me-5 p-3">
@@ -48,10 +49,10 @@ const Appointments = () => {
                     {idx}
                     .
                   </span>
-                  <span><Link className="app-link text-decoration-none main-text-color" to={`/appointments/${data.appointment.id}`} state={{ id: data.appointment.id }}>{data.appointment.title}</Link></span>
-                  <span><Link className="app-link text-decoration-none main-text-color" to={`/doctors/${data.doctor.id}`} state={{ id: data.doctor.id }}>{data.doctor.name}</Link></span>
-                  <span>{formatDate(data.appointment.time)}</span>
-                  <span>{formatTime(data.appointment.time)}</span>
+                  <span><Link className="app-link text-decoration-none main-text-color" to={`/appointments/${appointment.id}`} state={{ id: appointment.id }}>{appointment.title}</Link></span>
+                  <span><Link className="app-link text-decoration-none main-text-color" to={`/doctors/${appointment.doctor.id}`} state={{ id: appointment.doctor.id }}>{appointment.doctor.name}</Link></span>
+                  <span>{formatDate(appointment.time)}</span>
+                  <span>{formatTime(appointment.time)}</span>
                 </div>
               );
             })}
