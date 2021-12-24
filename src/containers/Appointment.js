@@ -41,9 +41,9 @@ const Appointment = () => {
             </div>
 
             <div className="col-12 offset-lg-1 col-lg-4 pe-3">
-              <h4 className="text-center text-lg-end">{appointment.appointment.title.toUpperCase()}</h4>
+              <h4 className="text-center text-lg-end">{appointment.title.toUpperCase()}</h4>
               <p className="text-muted text-center text-lg-end">
-                {appointment.appointment.description}
+                {appointment.description}
               </p>
               <div className="bg-grey py-2 px-3">
                 <p className="float-start m-0">Doctor:</p>
@@ -59,7 +59,7 @@ const Appointment = () => {
               <div className="bg-grey py-2 px-3">
                 <p className="float-start m-0">Date:</p>
                 <p className="float-end m-0">
-                  {formatDate(appointment.appointment.time)}
+                  {formatDate(appointment.time)}
                 </p>
                 <div className="clearfix" />
               </div>
@@ -67,7 +67,7 @@ const Appointment = () => {
               <div className="py-2 px-3">
                 <p className="float-start m-0">Time:</p>
                 <p className="float-end m-0">
-                  {formatTime(appointment.appointment.time)}
+                  {formatTime(appointment.time)}
                 </p>
                 <div className="clearfix" />
               </div>
