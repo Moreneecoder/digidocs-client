@@ -1,10 +1,19 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import userAuth from '../helpers/userAuth';
+import { loggedOut } from '../actions';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const loggedIn = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(loggedOut(false));
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white text-primary">
@@ -23,7 +32,7 @@ const Navbar = () => {
                   <span className="nav-link fw-bolder text-dark">{JSON.parse(userAuth()).data.name}</span>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link text-white main-bg-color px-3" to="/logout">Logout</Link>
+                  <button type="button" className="nav-link border-0 text-white main-bg-color px-3" onClick={() => handleLogOut()}>Logout</button>
                 </li>
               </>
             ) : (

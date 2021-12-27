@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
@@ -11,6 +11,8 @@ const Doctor = () => {
 
   const loggedIn = useSelector((state) => state.user);
   const doctor = useSelector((state) => state.doctor);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -64,7 +66,6 @@ const Doctor = () => {
               </div>
 
               <div className="bg-grey py-2 px-3">
-                {/* <p className="float-start m-0">Address:</p> */}
                 <p className="m-0">{doctor.office_address}</p>
                 <div className="clearfix" />
               </div>
@@ -84,9 +85,12 @@ const Doctor = () => {
         </div>
       );
     }
-  } else {
-    window.location.href = '/login';
   }
+
+  useEffect(() => {
+    navigate('/login');
+  },
+  [loggedIn]);
 
   return null;
 };

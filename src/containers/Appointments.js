@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import userAuth from '../helpers/userAuth';
@@ -11,6 +11,8 @@ const Appointments = () => {
   const loggedIn = useSelector((state) => state.user);
   const appointments = useSelector((state) => state.appointments);
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   if (loggedIn || userAuth()) {
@@ -19,7 +21,6 @@ const Appointments = () => {
     }, []);
 
     if (appointments.length) {
-      console.log(appointments);
       let idx = 0;
       return (
         <div className="Appointments">
@@ -69,7 +70,11 @@ const Appointments = () => {
     );
   }
 
-  window.location.href = '/login';
+  useEffect(() => {
+    navigate('/login');
+  },
+  [loggedIn]);
+
   return null;
 };
 

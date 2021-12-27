@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
@@ -14,6 +14,8 @@ import '../styles/Doctors.css';
 const Doctors = () => {
   const loggedIn = useSelector((state) => state.user);
   const doctors = useSelector((state) => state.doctors);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -95,7 +97,11 @@ const Doctors = () => {
     );
   }
 
-  window.location.href = '/login';
+  useEffect(() => {
+    navigate('/login');
+  },
+  [loggedIn]);
+
   return null;
 };
 

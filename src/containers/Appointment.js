@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import userAuth from '../helpers/userAuth';
@@ -13,6 +13,8 @@ const Appointment = () => {
 
   const loggedIn = useSelector((state) => state.user);
   const appointment = useSelector((state) => state.appointment);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -81,9 +83,12 @@ const Appointment = () => {
         </div>
       );
     }
-  } else {
-    window.location.href = '/login';
   }
+
+  useEffect(() => {
+    navigate('/login');
+  },
+  [loggedIn]);
 
   return null;
 };
