@@ -1,70 +1,81 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DigiDocs-Client: Microverse Final Capstone Project
 
-## Available Scripts
+A React-Redux app that helps users book appointments with doctors. The app fetches dependent data from an external API built with Ruby on Rails. This is the final assessment project of my Microverse Fullstack web development program.
 
-In the project directory, you can run:
 
-### `yarn start`
+## Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* React.js
+* Redux - For State management.
+* CSS3/Bootstrap 5 - For User Interface design.
+* Jest - For unit and integrated testing.
+* Heroku - For deployment.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Screenshots
+> Doctors page
+![App Screenshot](https://user-images.githubusercontent.com/38987207/146694402-c1318d54-f650-45ac-a0c9-7905091202f2.png)
 
-### `yarn test`
+> Appointments page
+![App Screenshot](https://user-images.githubusercontent.com/38987207/146694435-3eaf0468-53b0-447d-93ba-b322852d4994.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Appointment Details page
+![App Screenshot](https://user-images.githubusercontent.com/38987207/146694485-4872440a-683a-4b3a-9dbf-757e13245b85.png)
 
-### `yarn build`
+> Doctor Details page
+![App Screenshot](https://user-images.githubusercontent.com/38987207/146694549-b18abf2b-7189-4f58-8a1e-5ebaa7e0b722.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Live Demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[ligaPrimero](https://keji-digidocs.herokuapp.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
+To set this project up locally, follow the steps below:
 
-### `yarn eject`
+### Installation
+You should have the following tools installed on your machine:
+* [NodeJs](https://nodejs.org/en/)
+* [Node Package Manager (NPM)](https://www.npmjs.com/)
+* [React](https://reactjs.org/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Setup
+* Open your computer command line interface/terminal
+* Navigate to the folder where you'll like to house the source code. E.g `cd documents/<SOME_FOLDER>
+* Run `git clone https://github.com/Moreneecoder/digidocs-client.git` to download the project source to your chosen folder
+* Run `npm install` to install all necessary dependencies for the project to run
+* Run `npm start` to intiate the local/development server. This will automatically open the project in your browser.
+* If for some reason, the browser doesn't run automatically, Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+Voila! Your project is up and running...
+## Running Tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run tests, run the following command
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  npm run test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Bello Morenikeji Fuad**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- GitHub: [@moreenecoder](https://github.com/Moreneecoder)
+- Twitter: [@mo_bello19](https://twitter.com/mo_bello19)
+- LinkedIn: [Morenikeji Bello](https://linkedin.com/in/morenikeji-bello)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+Contributions, issues and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to check the [issues page](https://github.com/Moreneecoder/digidocs-client/issues).
 
-### Making a Progressive Web App
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Give a ⭐️ if you like this project!
+## Acknowledgements
+ - [Microverse](https://microverse.org)
 
-### Advanced Configuration
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](./LICENSE) licensed.

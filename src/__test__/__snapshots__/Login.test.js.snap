@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Component Renders Login component as expected 1`] = `
+<div
+  className="Login container"
+>
+  <form
+    className="card mt-5 p-4 offset-md-2 col-md-8 offset-lg-3 col-lg-6"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3"
+    >
+      <span>
+        UserName
+      </span>
+      <input
+        className="form-control mt-1"
+        onChange={[Function]}
+        placeholder="Name"
+        required={true}
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <span>
+        Email address
+      </span>
+      <input
+        className="form-control mt-1"
+        onChange={[Function]}
+        placeholder="Email"
+        required={true}
+      />
+    </div>
+    <button
+      className="btn text-white main-bg-color"
+      type="submit"
+    >
+      Login
+    </button>
+    <hr />
+    <div
+      className="text-end"
+    >
+      <span>
+        Don't have an account?
+      </span>
+       
+      <a
+        className="main-bg-color text-decoration-none text-white me-2 py-2 px-3"
+        href="/register"
+        onClick={[Function]}
+      >
+        Register
+      </a>
+    </div>
+  </form>
+</div>
+`;

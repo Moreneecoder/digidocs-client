@@ -1,0 +1,8 @@
+.Appointments {
+  padding: 10px;
+}
+
+.appointment-captions span,
+.appointment-items span {
+  flex: 1;
+}
