@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register Component Renders Register component as expected 1`] = `
+<div
+  className="Register container pt-4"
+>
+  <form
+    className="card mt-5 p-4 offset-md-2 col-md-8 offset-lg-3 col-lg-6"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3"
+    >
+      <span>
+        UserName
+      </span>
+      <input
+        aria-describedby="nameHelp"
+        className="form-control"
+        onChange={[Function]}
+        placeholder="Name"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <span>
+        Phone
+      </span>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        placeholder="Phone"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div
+      className="mb-3"
+    >
+      <span>
+        Email address
+      </span>
+      <input
+        aria-describedby="emailHelp"
+        className="form-control"
+        onChange={[Function]}
+        placeholder="Email"
+        required={true}
+        type="email"
+      />
+      <div
+        className="form-text main-text-color"
+        id="emailHelp"
+      >
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div
+      className="mb-3 form-check"
+    >
+      <input
+        className="form-check-input"
+        id="is-doctor-check"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="fw-bolder"
+      >
+        Are You Regsitering As A Doctor?
+      </span>
+    </div>
+    
+    <button
+      className="btn text-white main-bg-color"
+      type="submit"
+    >
+      Register
+    </button>
+    <hr />
+    <div
+      className="text-end"
+    >
+      <span>
+        Already have an account?
+      </span>
+       
+      <a
+        className="main-bg-color text-decoration-none text-white me-2 py-2 px-3"
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </div>
+  </form>
+</div>
+`;

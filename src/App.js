@@ -1,29 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './containers/Navbar';
+import Appointments from './containers/Appointments';
+import Doctors from './containers/Doctors';
+import Doctor from './containers/Doctor';
+import Appointment from './containers/Appointment';
+import Register from './containers/Register';
+import Login from './containers/Login';
+import SideNav from './components/SideNav';
+import './styles/App.css';
 
-function App() {
-  return (
+const App = () => (
+
+  <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <SideNav />
+
+        <div className="RestOfApp">
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Appointments />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/appointments/:appointment_id" element={<Appointment />} />
+            <Route path="/doctors" element={<Doctors />} />
+            <Route path="/doctors/:doctor_id" element={<Doctor />} />
+          </Routes>
+        </div>
+      </div>
     </div>
-  );
-}
+  </BrowserRouter>
+);
 
 export default App;
