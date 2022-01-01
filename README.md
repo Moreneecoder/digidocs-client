@@ -27,7 +27,7 @@ A React-Redux app that helps users book appointments with doctors. The app fetch
 
 ## Live Demo
 
-[ligaPrimero](https://keji-digidocs.herokuapp.com/)
+[digiDocs](https://keji-digidocs.herokuapp.com/)
 
 ## Backend API Repo
 [DigiDocs API](https://github.com/Moreneecoder/digidocs-api)
